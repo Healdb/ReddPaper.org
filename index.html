@@ -1,1 +1,212 @@
-Coming soon...
+
+
+<div id="container">
+<HTML>
+<div id="header">
+<HEAD>
+<TITLE>Convert Stellar</TITLE>
+<meta name="viewport" content="user-scalable=no, width=device-width" />
+<link rel="stylesheet" type="text/css" href="index.css">
+<script src="jquery.js"></script>
+<script src="inobounce.js"></script>
+<script type="text/javascript" src="fetchp.js"></script>
+<link href="switchery.css" rel="stylesheet" />
+    <link rel="stylesheet" href="framework7.min.css">
+<script>
+function myfunc(json) {
+  document.getElementById("sprice").value = json.data.avg.value;
+  document.getElementById("answer").value = 1000* json.data.avg.value;
+
+}
+</script>
+<script>
+function myFunction() {
+    document.getElementById("answer").select();
+}
+</script>
+<script>
+function myfunc2(json) {
+  document.getElementById("xprice").value = json.data.avg.value;
+}
+</script>
+<script>
+$(document).ready(function () {
+$("#body2").hide();
+$("#body3").hide();
+$("#body1").show();
+$.ajax({
+  type: "GET",
+  url: "http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCSTR/money/ticker&callback=jsonp",
+  dataType: 'jsonp',
+  jsonpCallback: 'myfunc', // the function to call
+  jsonp: 'callback', // name of the var specifying the callback in the request
+  error: function (xhr, errorType, exception) {
+    var errorMessage = exception || xhr.statusText;
+    alert("Excep:: " + exception + "Status:: " + xhr.statusText);
+  }
+});
+$.ajax({
+  type: "GET",
+  url: "http://json2jsonp.com/?url=https://anxpro.com/api/2/BTCXRP/money/ticker&callback=jsonp",
+  dataType: 'jsonp',
+  jsonpCallback: 'myfunc2', // the function to call
+  jsonp: 'callback', // name of the var specifying the callback in the request
+  error: function (xhr, errorType, exception) {
+    var errorMessage = exception || xhr.statusText;
+    alert("Excep:: " + exception + "Status:: " + xhr.statusText);
+  }
+});
+  $.get("https://jsonp.nodejitsu.com/?callback=&url=http%3A%2F%2Fpubapi1.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D2", function(data){
+    var dprice = (data.return.markets.BTC.lasttradeprice);
+    document.getElementById("dprice").value = dprice;
+  });
+  $.get("https://jsonp.nodejitsu.com/?callback=&url=http%3A%2F%2Fpubapi1.cryptsy.com%2Fapi.php%3Fmethod%3Dsinglemarketdata%26marketid%3D132", function(data){
+    var doprice = (data.return.markets.DOGE.lasttradeprice);
+    document.getElementById("doprice").value = doprice;
+  });
+});
+
+</script>
+
+</HEAD>
+</div>
+<!-- Views-->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class-->
+      <div class="view view-main">
+	<!-- Top Navbar-->
+	<div class="navbar">
+	  <!-- Navbar inner for Index page-->
+	  <div data-page="index" class="navbar-inner">
+	    <!-- We have home navbar without left link-->
+	    <div class="center sliding"><p class="top">Convert Stellar</p></div>
+	    <div class="right">
+	      <!-- Right link contains only icon - additional "icon-only" class--><a class="fastClick" id="showi">Home</a>
+	    </div>
+	  </div>
+	  <!-- Navbar inner for About page-->
+	  <div data-page="about" class="navbar-inner cached">
+	    <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+	    <div class="center sliding">About Us</div>
+	  </div>
+	  <!-- Navbar inner for Services page-->
+	  <div data-page="services" class="navbar-inner cached">
+	    <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+	    <div class="center sliding">Services</div>
+	  </div>
+	  <!-- Navbar inner for Form page-->
+	  <div data-page="form" class="navbar-inner cached">
+	    <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+	    <div class="center sliding">Form</div>
+	  </div>
+	</div>
+	<!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+	<div class="pages navbar-through toolbar-through">
+	  <!-- Index Page-->
+	  <div data-page="index" class="page">
+<BODY >
+<center>
+ <div id="body1">
+ <BR><BR>
+<p>hey</p>
+    <script type="text/javascript">
+    console.log(localStorage.getItem("theme"));
+		if(localStorage.getItem("theme")=="true"){
+	var sheet = document.styleSheets[2];
+	console.log(document.styleSheets[2]);
+	sheet.addRule(".page", "background: #000000; background-color: rgb(0,0,0) !important;", 1);
+	var sheet = document.styleSheets[0];
+	document.getElementById("theme").checked = true;
+	$('#theme').prop('checked', true);
+	sheet.addRule("body", "color: white !important;", 1);
+	}
+	else{
+	var sheet = document.styleSheets[2];
+	sheet.removeRule(1);
+	var sheet = document.styleSheets[0];
+	sheet.removeRule(1);
+	 $('#theme').prop('checked', false);
+	}
+
+      // Default
+      // if-else statement used only for fixing <IE9 issues
+      if (Array.prototype.forEach) {
+	var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+	elems.forEach(function(html) {
+	  var switchery = new Switchery(html);
+	});
+      } else {
+	var elems = document.querySelectorAll('.js-switch');
+
+	for (var i = 0; i < elems.length; i++) {
+	  var switchery = new Switchery(elems[i]);
+	}
+      }
+
+      // On change
+      var changeCheckbox = document.querySelector('.js-check-change')
+	, changeField = document.querySelector('.js-check-change-field');
+
+      changeCheckbox.onchange = function() {
+	console.log(changeCheckbox.checked);
+	if(changeCheckbox.checked==true){
+	var sheet = document.styleSheets[2];
+	console.log(document.styleSheets[2]);
+	sheet.addRule(".page", "background: #000000; background-color: rgb(0,0,0) !important;", 1);
+	var sheet = document.styleSheets[0];
+	sheet.addRule("body", "color: white !important;", 1);
+	localStorage.setItem("theme", true);
+	}
+	if(changeCheckbox.checked==false){
+	var sheet = document.styleSheets[2];
+	console.log(document.styleSheets[2]);
+	sheet.removeRule(1);
+	var sheet = document.styleSheets[0];
+	sheet.removeRule(1);
+	localStorage.setItem("theme", false);
+	}
+      };
+    </script>
+    </center>
+    <div class="toolbar">
+	  <div class="toolbar-inner"><a class="fastClick" id = "shows">Settings</a><a class="fastClick" id = "showi"></a><a  id = "showa" >About</a>
+	</div>
+      </div>
+    </div>
+    </div>
+    <script type="text/javascript" src="framework7.min.js"></script>
+    <script>
+    var myApp = new Framework7({
+    fastClicks: true,
+});
+    </script>
+<script src='fastbutton.js'></script>
+<script>
+      $('#showi').click(function(ev) {
+	$("#body1").show();
+	$("#body2").hide();
+	$("#body3").hide();
+      }).submit(function() {
+	return false;
+      });
+      $('#shows').click(function(ev) {
+	$("#body1").hide();
+	$("#body2").show();
+	$("#body3").hide();
+      }).submit(function() {
+	return false;
+      });
+      $('#showa').click(function(ev) {
+	$("#body1").hide();
+	$("#body2").hide();
+	$("#body3").show();
+      }).submit(function() {
+	return false;
+      });
+    
+</script>
+
+</center>
+</HTML>
+</div>
